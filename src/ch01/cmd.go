@@ -20,6 +20,7 @@ func parseCmd() *Cmd {
 
 	cmd := &Cmd{}
 
+	//改变 flag 默认的 Usage
 	flag.Usage = printUsage
 	flag.BoolVar(&cmd.helpFlag, "help",false,"print help message")
 	flag.BoolVar(&cmd.helpFlag,"?",false,"print help message")
