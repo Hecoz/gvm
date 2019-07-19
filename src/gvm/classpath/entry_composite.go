@@ -42,6 +42,5 @@ func (self CompositeEntry) String() string {
 
 		strs[i] = entry.String()
 	}
-
 	return strings.Join(strs, pathListSeparator)
 }

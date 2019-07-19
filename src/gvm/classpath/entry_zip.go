@@ -15,7 +15,7 @@ func newZipEntry(path string) *ZipEntry {
 
 	absPath, err := filepath.Abs(path)
 	if err != nil {
-		painc(err)
+		panic(err)
 	}
 
 	return &ZipEntry{absPath}
@@ -42,12 +42,14 @@ func (self *ZipEntry) readClass(className string) ([]byte,Entry,error){
 
 		if classFile.Name == className{
 
+			//open classfile -- reader
 			fileReaderCloser, err := classFile.Open()
 			if err != nil {
 				return nil, nil, err
 			}
 
 			defer fileReaderCloser.Close()
+			//read data
 			data, err := ioutil.ReadAll(fileReaderCloser)
 			if err != nil {
 

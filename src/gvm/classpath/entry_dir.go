@@ -15,7 +15,7 @@ func newDirEntry(path string) *DirEntry{
 
 	absDir,err := filepath.Abs(path)
 	if err != nil {
-		painc(err)
+		panic(err)
 	}
 
 	//相当与 new 了一个DirEntry，并返回其地址,因为函数声明中，返回值是指针
