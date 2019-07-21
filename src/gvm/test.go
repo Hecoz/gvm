@@ -10,7 +10,50 @@ import (
 func main1()  {
 
 	//testReader()
-	testFlag()
+	//testFlag()
+	//testBiBao()
+	testPanic()
+}
+
+//defer 的执行是先进后出
+func testPanic()  {
+
+	defer func(){
+		if err := recover() ; err != nil {
+			fmt.Println(err)
+		}
+	}()
+	defer func(){
+		panic("three")
+	}()
+	defer func(){
+		panic("two")
+	}()
+	panic("one")
+}
+
+//测试闭包
+func testBiBao()  {
+
+	add_func := add(1,2)
+	fmt.Println(add_func())
+	fmt.Println(add_func())
+	fmt.Println(add_func())
+}
+//闭包函数
+/*
+func() {
+    //func body
+}()     //花括号后加()表示函数调用，此处声明时为指定参数列表，
+        //故调用执行时也不需要传参
+ */
+// 函数名： add  参数： x1,x2 int  返回值: func()(int,int)
+func add(x1, x2 int) func()(int,int)  {
+	i := 0
+	return func() (int,int){
+		i++
+		return i,x1+x2
+	}
 }
 
 func testFlag()  {
@@ -41,8 +84,6 @@ func testFlag()  {
 //func prints(){
 //	fmt.Printf("Usage: %s [-options] class [args...]\n",os.Args[0])
 //}
-
-
 
 //测试读取JAR包
 func testReader()  {

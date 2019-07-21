@@ -32,7 +32,7 @@ func (self *ZipEntry) readClass(className string) ([]byte,Entry,error){
 		return nil,nil,err
 	}
 
-	//defer语句调用一个函数，这个函数执行会推迟，直到外围的函数返回，或者外围函数运行到最后，或者相应的goroutine panic
+	//defer语句调用一个函数，这个函数执行会推迟，直到外围的函数返回，或者外围函数运行到最后，或者相应的goroutine panic,defer的执行是先进后出
 	defer fliesReaderCloser.Close()
 
 	/*
