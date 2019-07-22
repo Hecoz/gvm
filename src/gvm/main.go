@@ -26,8 +26,7 @@ func startJVM(cmd *Cmd){
 	fmt.Printf("classpath:%v class:%v args:%v\n",cp, cmd.class, cmd.args)
 
 	className := strings.Replace(cmd.class, ".","/",-1)
-
-
+	
 	classData, _, err := cp.ReadClass(className)
 
 	if err != nil {

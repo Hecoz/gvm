@@ -9,7 +9,7 @@ type ClassReader struct {
 	data []byte
 }
 
-func (self *ClassReader) readUnit8() uint8 {
+func (self *ClassReader) readUint8() uint8 {
 
 	//每次取0索引位置变量，一个byte刚好是8位
 	val := self.data[0]
