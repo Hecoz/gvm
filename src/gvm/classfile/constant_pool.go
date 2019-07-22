@@ -8,7 +8,7 @@ type ConstantPool []ConstantInfo
 （1）常量池的索引从1开始，到 n - 1结束，所以是[1, n)
 （2）CONSTANT_Long_info, CONSTANT_Double_info占两个位置
  */
-func readConstantPool(reader *ClassReader) ConstrantPool {
+func readConstantPool(reader *ClassReader) ConstantPool {
 
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
@@ -26,7 +26,7 @@ func readConstantPool(reader *ClassReader) ConstrantPool {
 	return cp
 }
 
-func (self ConstantPool) getConstantInfo(index uint16) ConstrantPool {
+func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo {
 
 	if cpInfo := self[index]; cpInfo != nil {
 		return cpInfo
@@ -51,5 +51,5 @@ func (self ConstantPool) getClassName(index uint16) string{
 func (self ConstantPool) getUtf8(index uint16) string {
 
 	utf8Info := self.getConstantInfo(index).(*ConstantUtf8Info)
-	reutrn utf8Info.str
+	return utf8Info.str
 }
