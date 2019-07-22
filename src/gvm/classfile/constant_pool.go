@@ -23,7 +23,6 @@ func readConstantPool(reader *ClassReader) ConstrantPool {
 			i++
 		}
 	}
-
 	return cp
 }
 
