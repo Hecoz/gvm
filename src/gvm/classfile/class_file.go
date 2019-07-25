@@ -122,6 +122,7 @@ getter
  */
 func (self *ClassFile) ConstantPool() ConstantPool {
 
+	return self.constantPool
 }
 
 /*
