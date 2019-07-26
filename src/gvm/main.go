@@ -20,6 +20,7 @@ func main() {
 }
 
 //test cmd: gvm -Xjre $JAVA_HOME/jre java.lang.Object
+//test cmd: gvm "./javaClasses/CUT"
 func startJVM(cmd *Cmd){
 
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
@@ -27,6 +28,9 @@ func startJVM(cmd *Cmd){
 	fmt.Printf("classpath:%v class:%v args:%v\n",cp, cmd.class, cmd.args)
 
 	className := strings.Replace(cmd.class, ".","/",-1)
+
+	fmt.Println("cp:",cp)
+	fmt.Println("className:", className)
 
 	cf := loadClass(className, cp)
 	fmt.Println(cmd.class)
