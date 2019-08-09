@@ -13,7 +13,7 @@ func readConstantPool(reader *ClassReader) ConstantPool {
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
 
-	//inde begin with 1
+	//index begin with 1
 	for i := 1; i < cpCount; i++{
 
 		cp[i] = readConstantInfo(reader, cp)
