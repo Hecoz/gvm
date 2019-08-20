@@ -12,11 +12,11 @@ type Cmd struct{
 	versionFlag bool		// print gvm version
 	cpOption	string		// print class path option
 	XjreOption	string		// print jre option
- 	class		string		// print class
+	class		string		// print class
 	args		[]string	// print args
 }
 
-
+//解析命令行参数
 func parseCmd() *Cmd {
 
 	cmd := &Cmd{}
@@ -32,7 +32,7 @@ func parseCmd() *Cmd {
 	flag.StringVar(&cmd.XjreOption,"Xjre","","path to jre")
 	flag.Parse()
 
-	//这里，如果没有用参数指定，则输入的就为 args,
+	//这里，如果没有用参数指定，非参数选项，则输入的就为 args,
 	//例如 gvm java.lang.Object => cmd.class = java.lang.Object
 	//    gvm java.lang.Object 1 2 3 => cmd.class = java.lang.Object , cmd.args = 1,2,3
 	args := flag.Args()
@@ -46,6 +46,9 @@ func parseCmd() *Cmd {
 	return cmd
 }
 
+/*
+输出命令输入错误时候的提示信息
+ */
 func printUsage(){
 	fmt.Printf("Usage: %s [-options] class [args...]\n",os.Args[0])
 }

@@ -20,6 +20,7 @@ func newWildcardEntry(path string) CompositeEntry {
 
 		if info.IsDir() && path != baseDir {
 
+			//表示跳过子文件夹
 			return filepath.SkipDir
 		}
 

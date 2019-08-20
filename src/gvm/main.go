@@ -36,7 +36,7 @@ func startJVM(cmd *Cmd){
 	fmt.Println(cmd.class)
 	printClassInfo(cf)
 
-	
+
 	//classData, _, err := cp.ReadClass(className)
 	//
 	//if err != nil {
@@ -81,4 +81,3 @@ func printClassInfo(cf *classfile.ClassFile)  {
 		fmt.Printf("  %s\n", m.Name())
 	}
 }
-

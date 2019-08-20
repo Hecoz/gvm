@@ -32,6 +32,7 @@ type ConstantInfo interface {
 
 func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 
+	//读取一个字节的tag,用来判断是什么数据
 	tag := reader.readUint8()
 	c := newConstantInfo(tag, cp)
 	c.readInfo(reader)

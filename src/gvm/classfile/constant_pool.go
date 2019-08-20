@@ -10,6 +10,7 @@ type ConstantPool []ConstantInfo
  */
 func readConstantPool(reader *ClassReader) ConstantPool {
 
+	//首先读取常量池大小
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
 
